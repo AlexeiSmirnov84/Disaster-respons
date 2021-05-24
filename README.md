@@ -1,5 +1,8 @@
 # Disaster Response Pipeline Project
 
+### Introduction
+This project includes a web app where an emergency worker can input a new message and get classification results in several categories. The web app also displays visualizations of the data. It can be very useful in emergency.
+
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
@@ -12,3 +15,8 @@
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/
+
+4. Type any message and enter, as output the message will be classified.
+
+
+
