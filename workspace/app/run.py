@@ -27,7 +27,7 @@ def tokenize(text):
 
 # load data
 engine = create_engine('sqlite:///./data/DisasterResponse.db')
-df = pd.read_sql_table('messages', engine)
+df = pd.read_sql_table('Messages', engine)
 
 # load model
 model = joblib.load("./models/classifier.pkl")
@@ -38,11 +38,14 @@ model = joblib.load("./models/classifier.pkl")
 #@app.route('/go', methods=["POST", "GET"])
 @app.route('/index')
 def index():
-    
+
     # extract data needed for visuals
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+
+    category_counts = list(df.iloc[:,4:].astype(int).sum().sort_values().values)
+    category_keys = list(df.iloc[:,4:].sum().sort_values().keys())
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -61,10 +64,37 @@ def index():
                     'title': "Count"
                 },
                 'xaxis': {
-                    'title': "Genre"
+                    'title': "Genre",
+                    'tickangle':0
+                }
+            },
+            
+            'data': [
+                Bar(
+                    x=category_keys,
+                    y=category_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Frequency of Request Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Request Category",
+                     'tickangle':90
+                },
+                'margin':{
+                'l':-10, 
+                'r':-10, 
+                't':-10, 
+                'b':-10
                 }
             }
         }
+            
+        
     ]
     
     # encode plotly graphs in JSON
