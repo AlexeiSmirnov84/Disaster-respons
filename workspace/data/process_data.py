@@ -3,6 +3,13 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
+    """Load and combine two .csv files provided on id column.
+        Arguments:
+            messages_filepath {str} -- file path to messages .csv
+            categories_filepath {str} -- filepath to categories .csv
+        Returns:
+            pd.DataFrame -- df containing csvs merged on id
+    """
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     df = pd.concat([messages, categories], axis=1, join="inner")
@@ -10,6 +17,12 @@ def load_data(messages_filepath, categories_filepath):
     return df
 
 def clean_data(df):
+    """Split single string into 36 individual category columns.
+        Arguments:
+            df {pd.DataFrame} -- original dataframe
+        Returns:
+            pd.DataFrame -- df with categories split into columns
+    """
     categories = df['categories'].str.split(pat=';', expand=True)
     row = categories.iloc[0,:]
     category_colnames = row.apply(lambda x: x[:len(x) - 2])
@@ -26,11 +39,17 @@ def clean_data(df):
     return df
     
 def save_data(df, database_filename):
+    """Save cleaned data back into .db file.
+        Arguments:
+            df {pd.DataFrame} -- cleaned data
+            database_path {str} -- complete relative file path of where file
+            to be saved
+    """
     engine = create_engine('sqlite:///'+database_filename)
-    df.to_sql('Messages', engine, index=False)  
-
-
+    df.to_sql('Messages', engine, if_exists='replace', index=False)
+    
 def main():
+    """Perform ETL tasks and providing user feedback."""
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
