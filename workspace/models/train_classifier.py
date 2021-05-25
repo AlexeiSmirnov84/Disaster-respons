@@ -21,15 +21,26 @@ from sklearn.model_selection import GridSearchCV
 import pickle
 
 def load_data(database_filepath):
+    """Load processed data from .db file.
+    Arguments:
+        database_filepath {str} -- rel. filepath to .db file
+    """
     engine = create_engine('sqlite:///'+database_filepath)
-    df = pd.read_sql_table("Message", engine)
+    df = pd.read_sql("SELECT * FROM Messages", engine)
     X = df['message']
     Y = df.drop(columns=['id', 'genre', 'message', 'original'])
     category_names = Y.columns
+    for category in category_names:
+        Y[category] = Y[category].astype('str').str.replace('2', '1')
+        Y[category] = Y[category].astype('int')
 
     return X, Y, category_names
 
 def tokenize(text):
+    """Clean text to be used in ML algorithm.
+    Arguments:
+        text {str} -- text to be cleaned
+    """
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
@@ -49,6 +60,7 @@ def tokenize(text):
 
 
 def build_model():
+    """Build ML model using sklearn's pipeline module."""
     pipeline = Pipeline([
             ('vect', CountVectorizer(tokenizer=tokenize)),
             ('tfidf', TfidfTransformer()),
@@ -65,22 +77,25 @@ def build_model():
     return model
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    """Evaluate the ML learning model created using pipeline feature."""
     Y_pred = model.predict(X_test)
     
     for i in range(Y_pred.shape[1]):
-        print('{}: ___________________________________'.format(titles[i]))
-        report = classification_report(Y_pred[:,i], Y_test.values[:,i], target_names=titles)
+        print('{}: ___________________________________'.format(category_names[i]))
+        report = classification_report(Y_pred[:,i], Y_test.values[:,i], target_names=category_names)
         print(report)
         
     
 
 
 def save_model(model, model_filepath):
+    """Save trained model back as pickle string for use in webapp."""
     with open(model_filepath, 'wb') as file:
         pickle.dump(model, file)
 
 
 def main():
+    """Call function called to train classifier."""
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
