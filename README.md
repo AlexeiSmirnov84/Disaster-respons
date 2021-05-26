@@ -26,7 +26,7 @@ Maybe someday it will help to somebody.
 * models
   |- train_classifier.py
   |- classifier.pkl # saved model
-  | README.md
+* README.md
 ```
 ### Installation
 1. Copy all file to folder on your PC
