@@ -10,6 +10,11 @@ In this day and age, disasters appear around the world. Likely new technologies 
 
 Maybe someday it will help to somebody.
 
+### Installation
+1. Copy all file to folder on your PC
+2. Install all required software like Anaconda
+3. Follow the steps in Instructions section
+
 ### Instructions
 1. Run the following commands in the project's root directory to set up your database and model.
 
@@ -24,11 +29,6 @@ Maybe someday it will help to somebody.
 3. Go to http://0.0.0.0:3001/
 
 4. Type any message and enter, as output the message will be classified.
-
-### Installation
-1. Copy all file to folder on your PC
-2. Install all required software like Anaconda
-3. Follow the steps in Instructions section
 
 ### Acknowledgments
 This application is free for use. Thanks to Udacity team, who helped me with that.
