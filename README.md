@@ -3,6 +3,8 @@
 ### Introduction
 This project includes a web app where an emergency worker can input a new message and get classification results in several categories. The web app also displays visualizations of the data. It can be very useful in emergency.
 
+<img src="url/relativePath">
+
 ### Motivations
 In this day and age, disasters appear around the world. Likely new technologies allow alleviating people suffering. I proud to have in my portfolio application that can automatically identify people needs and recommend proper responds. 
 
@@ -17,7 +19,7 @@ Maybe someday it will help to somebody.
         `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
 
 2. Run the following command in the app's directory to run your web app.
-    `python run.py`
+    `python app/run.py`
 
 3. Go to http://0.0.0.0:3001/
 
