@@ -3,7 +3,7 @@
 ### Introduction
 This project includes a web app where an emergency worker can input a new message and get classification results in several categories. The web app also displays visualizations of the data. It can be very useful in emergency.
 
-<img src="https://github.com/AlexeiSmirnov84/Disaster-respons/web_interface.JPG">
+<img src="https://github.com/AlexeiSmirnov84/Disaster-respons/blob/main/web_interface.JPG?raw=true">
 
 ### Motivations
 In this day and age, disasters appear around the world. Likely new technologies allow alleviating people suffering. I proud to have in my portfolio application that can automatically identify people needs and recommend proper responds. 
