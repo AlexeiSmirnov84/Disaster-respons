@@ -10,6 +10,18 @@ In this day and age, disasters appear around the world. Likely new technologies 
 
 Maybe someday it will help to somebody.
 
+var routes = (
+  <Route name="App">
+    <Route name="Admin">
+      <Route name="Users"/>
+      <Route name="Reports"/>
+    </Route>
+    <Route name="Course">
+      <Route name="Assignments"/>
+    </Route>
+  </Route>
+);
+
 ### Files structure
 * app 
  - template
