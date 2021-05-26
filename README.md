@@ -25,5 +25,13 @@ Maybe someday it will help to somebody.
 
 4. Type any message and enter, as output the message will be classified.
 
+### Installation
+1. Open a new terminal window. You should already be in the workspace folder, but if not, then use terminal commands to navigate inside the folder with the run.py file.
+2. Type in the command line:
+3. python app/run.py . Your web app should now be running if there were no errors.
+4. Now, open another Terminal Window.
+5. Type [env|grep WORK]
+6. In a new web browser window, type in the following: https://SPACEID-3001.SPACEDOMAIN
+
 ### Acknowledgments
 This application is free for use. Thanks to Udacity team, who helped me with that.
