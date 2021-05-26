@@ -11,17 +11,8 @@ In this day and age, disasters appear around the world. Likely new technologies 
 Maybe someday it will help to somebody.
 
 
-  <Route name="App">
-    <Route name="Admin">
-      <Route name="Users"/>
-      <Route name="Reports"/>
-    </Route>
-    <Route name="Course">
-      <Route name="Assignments"/>
-    </Route>
-  </Route>
-
 ### Files structure
+'''bash
 * app 
  - template
  | |- master.html # main page of web app
@@ -36,7 +27,7 @@ Maybe someday it will help to somebody.
 |- train_classifier.py
 |- classifier.pkl # saved model
 * README.md
-
+'''
 ### Installation
 1. Copy all file to folder on your PC
 2. Install all required software like Anaconda
