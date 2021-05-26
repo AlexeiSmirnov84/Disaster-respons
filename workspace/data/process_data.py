@@ -30,7 +30,7 @@ def clean_data(df):
     
     for column in categories:
         categories[column] = categories[column].apply(lambda x: x[len(x) - 1:])
-        categories[column] = categories[column].astype(str)
+        categories[column] = categories[column].astype(str).replace('2', '1')
       
     df = df.drop(['categories'], axis=1)
     df = pd.concat([df, categories], axis=1)
