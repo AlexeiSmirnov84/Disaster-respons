@@ -11,7 +11,7 @@ In this day and age, disasters appear around the world. Likely new technologies 
 Maybe someday it will help to somebody.
 
 ### Files structure
-app
+app 
 | - template
 | |- master.html # main page of web app
 | |- go.html # classification result page of web app
