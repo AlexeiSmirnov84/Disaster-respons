@@ -30,9 +30,6 @@ def load_data(database_filepath):
     X = df['message']
     Y = df.drop(columns=['id', 'genre', 'message', 'original'])
     category_names = Y.columns
-    for category in category_names:
-        Y[category] = Y[category].astype('str').str.replace('2', '1')
-        Y[category] = Y[category].astype('int')
 
     return X, Y, category_names
 
