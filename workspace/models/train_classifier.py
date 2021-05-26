@@ -79,8 +79,9 @@ def evaluate_model(model, X_test, Y_test, category_names):
     
     for i in range(Y_pred.shape[1]):
         print('{}: ___________________________________'.format(category_names[i]))
-        report = classification_report(Y_pred[:,i], Y_test.values[:,i], target_names=category_names)
-        print(report)
+        # report = classification_report(Y_pred[:,i], Y_test.values[:,i], target_names=category_names)
+        # print(report)
+        print(classification_report(Y_test, Y_pred, target_names=category_names))
         
     
 
