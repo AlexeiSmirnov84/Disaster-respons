@@ -3,7 +3,12 @@
 ### Introduction
 This project includes a web app where an emergency worker can input a new message and get classification results in several categories. The web app also displays visualizations of the data. It can be very useful in emergency.
 
-### Instructions:
+### Motivations
+In this day and age, disasters appear around the world. Likely new technologies allow alleviating people suffering. I proud to have in my portfolio application that can automatically identify people needs and recommend proper responds. 
+
+Maybe someday it will help to somebody.
+
+### Instructions
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database
@@ -18,5 +23,5 @@ This project includes a web app where an emergency worker can input a new messag
 
 4. Type any message and enter, as output the message will be classified.
 
-
-
+### Acknowledgments
+This application is free for use. Thanks to Udacity team, who helped me with that.
